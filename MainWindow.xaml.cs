@@ -107,15 +107,15 @@ namespace LINQ___Lambda_Shopping_Filter
                     string value = txtbox_search.Text;
                     int start = Convert.ToInt32(txtcost_from.Text);
                     int end = Convert.ToInt32(txtcost_to.Text);
-                    //var low1 = oproducts.Where((x => x.PPrice >= start && x.PPrice <= end && x.PName.Contains(value)).OrderBy(x => x.PRatings));
-                    var low = oproducts.OrderBy(x => x.PRatings).ThenBy(x => x.PPrice >= start && x.PPrice <= end && x.PName.Contains(value));
+                    var low1 = oproducts.Where(x => x.PPrice >= start && x.PPrice <= end && x.PName.Contains(value)).OrderBy(x => x.PPrice);
+                    //var low = oproducts.OrderBy(x => x.PRatings).ThenBy(x => x.PPrice >= start && x.PPrice <= end && x.PName.Contains(value));
                     lst_products.ItemsSource = null;
-                    lst_products.ItemsSource = low;
+                    lst_products.ItemsSource = low1;
                 }
                 else
                 {
                     string value = txtbox_search.Text;
-                    var low = oproducts.OrderBy(x => x.PRatings).ThenBy(x => x.PName.Contains(value));
+                    var low = oproducts.OrderBy(x => x.PPrice).ThenBy(x => x.PName.Contains(value));
                     lst_products.ItemsSource = null;
                     lst_products.ItemsSource = low;
                 }
@@ -132,14 +132,14 @@ namespace LINQ___Lambda_Shopping_Filter
                     int start = Convert.ToInt32(txtcost_from.Text);
                     int end = Convert.ToInt32(txtcost_to.Text);
 
-                    var low = oproducts.OrderByDescending(x => x.PRatings).ThenBy(x => x.PPrice >= start && x.PPrice <= end && x.PName.Contains(value));
+                    var low = oproducts.OrderByDescending(x => x.PPrice).ThenBy(x => x.PPrice >= start && x.PPrice <= end && x.PName.Contains(value));
                     lst_products.ItemsSource = null;
                     lst_products.ItemsSource = low;
                 }
                 else
                 {
                     string value = txtbox_search.Text;
-                    var low = oproducts.OrderByDescending(x => x.PRatings).ThenBy(x => x.PName.Contains(value));
+                    var low = oproducts.OrderByDescending(x => x.PPrice).ThenBy(x => x.PName.Contains(value));
                     lst_products.ItemsSource = null;
                     lst_products.ItemsSource = low;
                 }
@@ -155,14 +155,14 @@ namespace LINQ___Lambda_Shopping_Filter
                     string value = txtbox_search.Text;
                     int start = Convert.ToInt32(txtcost_from.Text);
                     int end = Convert.ToInt32(txtcost_to.Text);
-                    var low = oproducts.OrderByDescending(x => x.PRatings).ThenBy(x => x.PPrice >= start && x.PPrice <= end && x.PName.Contains(value));
+                    var low = oproducts.OrderByDescending(x => x.PPopularity).ThenBy(x => x.PPrice >= start && x.PPrice <= end && x.PName.Contains(value));
                     lst_products.ItemsSource = null;
                     lst_products.ItemsSource = low;
                 }
                 else
                 {
                     string value = txtbox_search.Text;
-                    var low = oproducts.OrderByDescending(x => x.PRatings).ThenBy(x => x.PName.Contains(value));
+                    var low = oproducts.OrderByDescending(x => x.PPopularity).ThenBy(x => x.PName.Contains(value));
                     lst_products.ItemsSource = null;
                     lst_products.ItemsSource = low;
                 }
